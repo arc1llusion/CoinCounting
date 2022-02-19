@@ -35,8 +35,8 @@ int main() {
 
 	while(1) 
 	{
-		LCDsetCursor(0, 0);
-		LCDprintString((unsigned char*)"Hello World");
+		// LCDsetCursor(0, 0);
+		// LCDprintString((unsigned char*)"Hello World");
 
 		while(irSensorRead(&sensor1) == 1 && irSensorRead(&sensor2) == 1 && irSensorRead(&sensor3) == 1 && irSensorRead(&sensor4) == 1) {
 			irSensorUpdate(&sensor1);
@@ -65,23 +65,23 @@ int main() {
 		LCDsetCursor(9,0);
 		LCDprintCharacter('P');
 
-		// LCDsetCursor(0, 3);
-		// LCDprintCharacter((unsigned char)sensor1.count);
+		LCDsetCursor(0, 3);
+		LCDprintCharacter((unsigned char)(sensor1.count+30));
 
-		// LCDsetCursor(3, 3);
-		// LCDprintCharacter((unsigned char)sensor2.count);
+		LCDsetCursor(3, 3);
+		LCDprintCharacter((unsigned char)(sensor2.count+30));
 
-		// LCDsetCursor(6, 3);
-		// LCDprintCharacter((unsigned char)sensor3.count);
+		LCDsetCursor(6, 3);
+		LCDprintCharacter((unsigned char)(sensor3.count+30));
 
-		// LCDsetCursor(9, 3);
-		// LCDprintCharacter((unsigned char)sensor4.count);
+		LCDsetCursor(9, 3);
+		LCDprintCharacter((unsigned char)(sensor4.count+30));
 
 		// printf("Count %d ticks %d dumbClock %d\n", count0, count0Ticks, dumbClock);
-		// printf("Digital Read 0 %d\n", sensor1.count);
-		// printf("Digital Read 2 %d\n", sensor2.count);
-		// printf("Digital Read 3 %d\n", sensor3.count);
-		// printf("Digital Read 4 %d\n", sensor4.count);
+		printf("Digital Read 0 %d\n", sensor1.count);
+		printf("Digital Read 2 %d\n", sensor2.count);
+		printf("Digital Read 3 %d\n", sensor3.count);
+		printf("Digital Read 4 %d\n", sensor4.count);
 
 		//delay(500);
 	}

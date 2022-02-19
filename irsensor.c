@@ -30,6 +30,8 @@ void irSensorUpdate(IrSensor* sensor) {
 			sensor->clockCount = sensor->clockCount + 1;;
 		}
 
+
+		//printf("Pin %d clockCount %d \n", sensor->pinNumber, sensor->clockCount);
 		if(sensor->clockCount > 10000){
 			sensor->ticks = 0;
 			sensor->clockCount = 0;
