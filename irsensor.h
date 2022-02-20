@@ -6,7 +6,7 @@
 
 typedef struct IrSensor {
     int pinNumber;
-    unsigned char count;
+    int count;
     int ticks;
     int counted;
     int clock;
