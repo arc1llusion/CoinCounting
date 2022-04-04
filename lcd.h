@@ -1,6 +1,8 @@
 #ifndef LCD_H
 #define LCD_H
 
+//Adapted from edx course "Shape the World - Embedded Systems" which originally used texas instruments microcontroller
+
 #include <stdio.h>
 #include <wiringPi.h>
 #include <wiringPiSPI.h>

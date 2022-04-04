@@ -1,7 +1,8 @@
-#include "irsensor.h"
+#include "genericinput.h"
 
-void irSensorInit(IrSensor* sensor, int pinNumber) {
+void giSensorInit(GenericInput* sensor, int pinNumber, int inputTrue) {
     sensor->pinNumber = pinNumber;
+	sensor->inputTrue = inputTrue;
     pinMode(sensor->pinNumber, INPUT);
 
     sensor->count = 0;
@@ -11,12 +12,12 @@ void irSensorInit(IrSensor* sensor, int pinNumber) {
     sensor->counted = 0;
 }
 
-int irSensorRead(IrSensor* sensor) {
+int giSensorRead(GenericInput* sensor) {
     return digitalRead(sensor->pinNumber);
 }
 
-void irSensorUpdate(IrSensor* sensor) {
-    	if(irSensorRead(sensor) == 0) {
+void giSensorUpdate(GenericInput* sensor) {
+    	if(giSensorRead(sensor) == sensor->inputTrue) {
             sensor->ticks = sensor->ticks + 1;
             sensor->clock = 1;
 		}
